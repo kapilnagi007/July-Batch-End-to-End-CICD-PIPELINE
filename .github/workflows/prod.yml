@@ -18,6 +18,12 @@ jobs:
 
       - name: Setup NodeJS
         uses: actions/setup-node@v6
+
+      - name: Debug Repo Structure
+        run: |
+          pwd
+          ls -la
+          find . -maxdepth 2 -type -f name package.json
       
       - name: Install Dependencies
         working-directory: innerpeace
