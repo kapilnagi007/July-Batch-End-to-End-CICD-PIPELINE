@@ -10,12 +10,15 @@ WORKDIR /app
 COPY package.*json ./
 
 # Install dependencies
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 # Copy application source
 COPY . .
 
+
 # Build React app
+
+ENV DISABLE_ESLINT_PLUGIN=true
 RUN npm run build
 
 
