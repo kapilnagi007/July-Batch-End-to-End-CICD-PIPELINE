@@ -64,19 +64,19 @@ jobs:
       
       - name: Build Docker image
         run: |
-          docker build -t kopilnagi/react-procution-app:v1 ./demo-app
+          docker build -t kopilnagi/innerpeace:latest ./innerpeace
 
       - name: Scan Docker image
         uses: aquasecurity/trivy-action@master
         continue-on-error: true
         with:
-          image-ref: kopilnagi/react-procution-app:v1
+          image-ref: kopilnagi/innerpeace:latest
           formate: table
           exit-code: 1
           severity: CRITICAL
       
       - name: Push Docker image
         run: |
-          docker push kopilnagi/react-procution-app:v1
+          docker push kopilnagi/innerpeace:latest
 
     
