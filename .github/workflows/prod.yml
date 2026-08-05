@@ -20,11 +20,11 @@ jobs:
         uses: actions/setup-node@v6
       
       - name: Install Dependencies
-        working-directory: demo-app
+        working-directory: innerpeace
         run: npm install
       
       - name: Run Test
-        working-directory: demo-app
+        working-directory: innerpeace
         run: npm test -- --watchAll=false
 
 

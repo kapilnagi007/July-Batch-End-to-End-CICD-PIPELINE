@@ -1,2 +1,10 @@
 innerpeace/.node_modules/
 
+Terraform/.terraform/
+
+Terraform/modules/.terraform/
+
+Terraform/terraform.tfstate.backup
+
+Terraform/terraform.tfstate
+
