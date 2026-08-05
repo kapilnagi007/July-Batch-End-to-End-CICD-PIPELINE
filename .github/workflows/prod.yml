@@ -18,13 +18,22 @@ jobs:
 
       - name: Setup NodeJS
         uses: actions/setup-node@v6
+        with:
+          node-version: 20
 
       - name: Debug Repo Structure
         run: |
           pwd
           ls -la
-          find . -maxdepth 2 -type -f name package.json
+          find . -maxdepth 2 -type -f name "package.json"
           git ls-files | grep innerpeace
+
+      - name: Verify React App
+        run: |
+          pwd
+          ls -la
+          ls -la innerpeace
+          ls -la innerpeace/package.json
       
       - name: Install Dependencies
         working-directory: innerpeace
