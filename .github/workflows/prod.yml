@@ -24,6 +24,7 @@ jobs:
           pwd
           ls -la
           find . -maxdepth 2 -type -f name package.json
+          git ls-files | grep innerpeace
       
       - name: Install Dependencies
         working-directory: innerpeace
