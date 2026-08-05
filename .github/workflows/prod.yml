@@ -25,7 +25,7 @@ jobs:
         run: |
           pwd
           ls -la
-          find . -maxdepth 2 -type -f name "package.json"
+          find . -maxdepth 2 -type f name "package.json"
           git ls-files | grep innerpeace
 
       - name: Verify React App
