@@ -1,8 +1,8 @@
-innerpeace/.node_modules/
+innerpeace/node_modules/
 
-Terraform/.terraform/
+Terraform/terraform/
 
-Terraform/modules/.terraform/
+Terraform/modules/terraform/
 
 Terraform/terraform.tfstate.backup
 
