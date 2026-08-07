@@ -1,16 +1,18 @@
-pipeline {
+pipeline{
     agent any
 
     stages {
-        stage('check the versions'){
-            steps {
-                sh '''
-                   pwd
-                   ls -la
-                   node -v
-                   npm -v
-                   docker version
-                '''
+
+            stage('check the versions'){
+                steps {
+                    sh '''
+                       pwd
+                       ls -la
+                       node -v
+                       npm -v
+                       docker version
+                    '''
+                }
             }
 
             stage('npm installation'){
@@ -116,5 +118,3 @@ pipeline {
 
         }
     }
-
-}
