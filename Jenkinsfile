@@ -17,9 +17,9 @@ pipeline{
 
             stage('npm installation'){
                 steps {
-                    sh '''
-                        npm install
-                    '''
+                    dir('innerpeace') {
+                        sh 'npm install'    
+                    }
                 }
             }
 
