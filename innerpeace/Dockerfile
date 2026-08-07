@@ -5,7 +5,6 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-
 # Copy package files
 COPY package.*json ./
 
