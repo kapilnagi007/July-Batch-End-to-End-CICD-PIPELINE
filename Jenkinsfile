@@ -20,6 +20,7 @@ pipeline{
                     dir('innerpeace') {
                         sh 'npm install'    
                     }
+                    
                 }
             }
 
@@ -27,7 +28,7 @@ pipeline{
             stage('SonarQube Analysis'){
 
                 steps {
-                        script {
+                    script {
 
                         def scannerHome = tool(
                             name: 'sonar-scanner',
