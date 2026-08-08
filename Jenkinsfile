@@ -78,20 +78,20 @@ pipeline{
                     dir('innerpeace') {
 
                         withCredentials([
-                        usernamePassword(
-                            credentialsId: 'dockerhub-creds',
-                            usernameVariable: 'DOCKER_USER',
-                            passwordVariable: 'DOCKER_PASS'
+                            usernamePassword(
+                                credentialsId: 'dockerhub-creds',
+                                usernameVariable: 'DOCKER_USER',
+                                passwordVariable: 'DOCKER_PASS'
                             )
                         ]) {
 
-                            sh """
+                            sh '''
                             echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
 
                             docker build \
                             -t ${IMAGE_NAME}:${IMAGE_TAG} \
                             -t ${IMAGE_NAME}:latest .
-                            """
+                            '''
                         }
 
                     }
