@@ -3,7 +3,7 @@ pipeline{
 
     environment {
         IMAGE_NAME = 'innerpeace'
-        IMAGE_TAG = '${BUILD_NUMBER}'
+        IMAGE_TAG = "${BUILD_NUMBER}"
     }
 
     stages {
