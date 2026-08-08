@@ -36,7 +36,9 @@ pipeline{
                         )
 
                         withSonarQubeEnv('sonarqube') {
-                            sh "${scannerHome}/bin/sonar-scanner"
+                            dir('innerpeace'){
+                                sh "${scannerHome}/bin/sonar-scanner"    
+                            }                            
                         }
                     }
                 }
