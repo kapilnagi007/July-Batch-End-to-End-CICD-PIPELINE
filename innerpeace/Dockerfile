@@ -14,7 +14,6 @@ RUN npm ci --legacy-peer-deps
 # Copy application source
 COPY . .
 
-
 # Build React app
 
 ENV DISABLE_ESLINT_PLUGIN=true

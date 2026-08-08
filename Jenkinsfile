@@ -1,6 +1,11 @@
 pipeline{
     agent any
 
+    environment {
+        IMAGE_NAME = 'innerpeace'
+        IMAGE_TAG = '${BUILD_NUMBER}'
+    }
+
     stages {
 
             stage('check the versions'){
