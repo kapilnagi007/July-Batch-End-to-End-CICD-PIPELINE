@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: innerpeace-deployment
+  labels:
+    app: innerpeace
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: innerpeace
+
+  template:
+    metadata:
+      labels:
+        app: innerpeace
+
+    spec:
+      containers:
+        - name: innerpeace
+          image: kopilnagi/innerpeace:19
+          ports:
+            - containerPort: 80

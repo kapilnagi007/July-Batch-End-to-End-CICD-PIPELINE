@@ -4,6 +4,9 @@ pipeline{
     environment {
         IMAGE_NAME = 'kopilnagi/innerpeace'
         IMAGE_TAG = "${BUILD_NUMBER}"
+        AWS_REGION = 'us-east-1'
+        EKS_CLUSTER_NAME = 'innerpeace-cluster'
+        DEPLOYMENT_NAME = 'innerpeace-deployment'
     }
 
     stages {
@@ -134,6 +137,41 @@ pipeline{
                         """
 
                     }
+                }
+            }
+
+            stage('Configure AWS'){
+                steps{
+                    withCredentials([[
+                        $class: 'AmazonWebServicesCredentialsBinding', 
+                        credentialsId: 'aws-creds', 
+                        accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
+                        secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+                    ]]) {
+                        sh '''
+                            aws get-caller-identity
+                            aws eks update-kubeconfig --region ${AWS_REGION} --name ${EKS_CLUSTER_NAME}
+                        '''
+                    }
+                }
+            }
+
+            stage('Deploy to EKS') {
+                steps{
+                    sh '''
+                        kubectl apply -f k8s/deployment.yaml
+                        kubectl apply -f k8s/service
+                    '''
+                }
+            }
+
+            stage('Verify Deployment'){
+                steps{
+                    sh '''
+                        kubectl get pods
+                        kubectl get svc
+                        kubectl rollout status deployment/${DEPLOYMENT_NAME} --timeout=180s
+                    '''
                 }
             }
 
