@@ -8,3 +8,6 @@ Terraform/terraform.tfstate.backup
 
 Terraform/terraform.tfstate
 
+Terraform/terraform.lock.hcl
+
+Terraform/modules/terraform.lock.hcl
