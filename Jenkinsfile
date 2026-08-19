@@ -149,7 +149,7 @@ pipeline{
                         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                     ]]) {
                         sh '''
-                            aws get-caller-identity
+                            aws sts get-caller-identity
                             aws eks update-kubeconfig --region ${AWS_REGION} --name ${EKS_CLUSTER_NAME}
                         '''
                     }
