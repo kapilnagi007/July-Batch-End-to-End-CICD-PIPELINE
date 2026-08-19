@@ -19,3 +19,5 @@ Terraform/modules/terraform.lock.hcl
 *.tfstate.*
 
 *.terraform.lock.hcl
+
+*.DS_Store.*
