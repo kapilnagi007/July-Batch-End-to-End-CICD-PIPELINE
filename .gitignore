@@ -11,3 +11,9 @@ Terraform/terraform.tfstate
 Terraform/terraform.lock.hcl
 
 Terraform/modules/terraform.lock.hcl
+
+.terraform/
+
+*.tfstate
+
+*.tfstate.*
