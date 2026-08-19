@@ -17,3 +17,5 @@ Terraform/modules/terraform.lock.hcl
 *.tfstate
 
 *.tfstate.*
+
+*.terraform.lock.hcl
