@@ -5,7 +5,7 @@ pipeline{
         IMAGE_NAME = 'kopilnagi/innerpeace'
         IMAGE_TAG = "${BUILD_NUMBER}"
         AWS_REGION = 'us-east-1'
-        EKS_CLUSTER_NAME = 'innerpeace-cluster'
+        EKS_CLUSTER_NAME = 'innerpeace-dev-eks'
         DEPLOYMENT_NAME = 'innerpeace-deployment'
     }
 
